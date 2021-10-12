@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>janken play</title>
+</head>
+
+<body>
+  <div><a href="/logout">ログアウト</a></div>
+  <h1>Lec02 GET!</h1>
+  <p>
+  <div th:if="${room}">
+    エントリー
+    <ul>
+      <li th:each="user : ${room.users}">[[${user}]]</li>
+    </ul>
+  </div>
+  Hi [[${login_user}]]
+  <div>
+    <a href="/lec02/1">グー</a>
+    <a href="/lec02/2">チョキ</a>
+    <a href="/lec02/3">パー</a>
+    <p>[[${hund1}]]</p>
+    <p>[[${hund2}]]</p>
+    <p>[[${result}]]</p>
+  </div>
+  </p>
+</body>
+
+</html>
