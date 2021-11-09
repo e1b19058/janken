@@ -13,7 +13,9 @@
   <div th:if="${room}">
     エントリー
     <ul>
-      <li th:each="user : ${room.users}">[[${user}]]</li>
+      <li th:each="${user2}">
+        [[${user2.name}]]
+      </li>
     </ul>
   </div>
   Hi [[${login_user}]]

@@ -22,6 +22,8 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
     // htpasswdでBCryptエンコードを行った後の文字列をパスワードとして指定している．
     auth.inMemoryAuthentication().withUser("user2")
         .password("$2y$10$hJ4m88qZMn7caTkOhnkR6OhIa0N/fmSXsRvC.2sA5uOoEK8sLz51W").roles("USER");
+
+    auth.inMemoryAuthentication().withUser("ほんだ").password(passwordEncoder().encode("1234")).roles("USER");
   }
 
   @Bean
@@ -34,5 +36,7 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
     http.formLogin();
     http.authorizeRequests().antMatchers("/lec02/**").authenticated();
     http.logout().logoutSuccessUrl("/");
+    http.csrf().disable();
+    http.headers().frameOptions().disable();
   }
 }
